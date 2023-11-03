@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "./NavBar";
 import Aside from "./Aside";
+import { ThemeProvider } from "./components/theme-provider";
+import { ModeToggle } from "./components/toogle-dark-mode";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,11 +21,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <NavBar />
-        <div className="grid grid-flow-col ">
-          <Aside />
-          <main>{children}</main>
-        </div>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <NavBar />
+          <div className="grid grid-flow-col">
+            <Aside />
+            <main>{children}</main>
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
