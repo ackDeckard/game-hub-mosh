@@ -4,7 +4,6 @@ import "./globals.css";
 import NavBar from "./NavBar";
 import Aside from "./Aside";
 import { ThemeProvider } from "./components/theme-provider";
-import { ModeToggle } from "./components/toogle-dark-mode";
 
 const inter = Inter({ subsets: ["latin"] });
 
